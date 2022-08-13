@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import { useWeb3 } from "@3rdweb/hooks";
 import Dashboard from "./Dashboard";
-import phone from "../statics/phone.png";
-import eth from "../statics/eth1.png";
-import btc from "../statics/bitcoin.png";
-import lite from "../statics/lite.png";
-import cube from "../statics/cube.png";
-import circle from "../statics/circle.png";
-import piramid from "../statics/piramid.png";
-import spiral from "../statics/spiral.png";
-import bg from "../statics/phone-bg.png";
+import phone from "../assets/phone.png";
+import eth from "../assets/eth1.png";
+import btc from "../assets/bitcoin.png";
+import lite from "../assets/lite.png";
+import cube from "../assets/cube.png";
+import circle from "../assets/circle.png";
+import piramid from "../assets/piramid.png";
+import spiral from "../assets/spiral.png";
+import bg from "../assets/phone-bg.png";
 import Image from "next/image";
+import Header from "../components/Header";
 
 export default function Home() {
     const { address, connectWallet } = useWeb3();
@@ -21,6 +22,7 @@ export default function Home() {
                     <Dashboard address={address} />
                 ) : (
                     <Container>
+                        <Header />
                         <Left>
                             <H2>
                                 Earn up to 5.7% APY interest from your crypto
@@ -28,9 +30,7 @@ export default function Home() {
                             </H2>
                             <P>
                                 Lorem Ipsum is simply dummy text of the printing
-                                and typesetting industry. Lorem Ipsum has been
-                                the industrys standard dummy text ever since the
-                                1500s.
+                                and typesetting industry.
                             </P>
                             <WalletConnect
                                 onClick={() => connectWallet("injected")}
@@ -38,7 +38,6 @@ export default function Home() {
                                 <Button>Connect Wallet</Button>
                             </WalletConnect>
                         </Left>
-
                         <Right>
                             <ImageContainer>
                                 <Image src={bg} width={550} height={850} />
